@@ -371,9 +371,7 @@
             <p>Link this Pay Button to an app instead. Some features are disabled due to the different endpoint capabilities. You can set which perk/item this button should be targeting.</p>
             <div class="form-group">
                 <label class="form-label" for="app-as-endpoint">Use App As Endpoint</label>
-                <select v-model="srvModel.appIdEndpoint" v-on:change="inputChanges" class="form-select" id="app-as-endpoint">
-                    <option value="">Use default pay button endpoint</option>
-                    <option  v-for="app in srvModel.apps" v-bind:value="app.id" >{{app.appName}} ({{app.appType}})</option>
+                <select asp-items="Model.Apps" v-model="srvModel.appIdEndpoint" v-on:change="inputChanges" class="form-select" id="app-as-endpoint">
                 </select>
                 <small class="text-danger">{{ errors.first('appIdEndpoint') }}</small>
             </div>

@@ -1,4 +1,5 @@
 #nullable enable
+using System.Linq;
 using System.Threading.Tasks;
 using BTCPayServer.Abstractions.Constants;
 using BTCPayServer.Abstractions.Extensions;
@@ -11,6 +12,7 @@ using BTCPayServer.Services.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using StoreData = BTCPayServer.Data.StoreData;
 
 namespace BTCPayServer.Plugins.PayButton.Controllers
@@ -80,7 +82,7 @@ namespace BTCPayServer.Plugins.PayButton.Controllers
                 Min = 1,
                 Max = 20,
                 Step = "1",
-                Apps = apps
+                Apps = apps.Select(viewModel => new SelectListItem($"{viewModel.AppName} {viewModel.AppType}", viewModel.Id)).Prepend(new SelectListItem("Use default pay button endpoint", "")).ToArray(),
             };
             return View("PayButton/PayButton", model);
         }

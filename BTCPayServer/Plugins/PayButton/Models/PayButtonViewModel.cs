@@ -5,6 +5,7 @@ using BTCPayServer.Models.AppViewModels;
 using BTCPayServer.Models.StoreViewModels;
 using BTCPayServer.Validation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BTCPayServer.Plugins.PayButton.Models
 {
@@ -48,7 +49,7 @@ namespace BTCPayServer.Plugins.PayButton.Models
         public string PayButtonText { get; set; }
         public bool UseModal { get; set; }
         public bool JsonResponse { get; set; }
-        public ListAppsViewModel.ListAppViewModel[] Apps { get; set; }
+        public SelectListItem[] Apps { get; set; }
         public string AppIdEndpoint { get; set; } = "";
         public string AppChoiceKey { get; set; } = "";
     }
