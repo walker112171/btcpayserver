@@ -905,7 +905,8 @@ namespace BTCPayServer.Tests
                     Policies.CanModifyStoreSettings,
                     Policies.CanCreateNonApprovedPullPayments,
                     Policies.CanCreatePullPayments,
-                    Policies.CanManagePullPayments
+                    Policies.CanManagePullPayments,
+                    Policies.CanArchivePullPayments,
                 });
             AssertPermissions(pageSource, false,
              new[]
