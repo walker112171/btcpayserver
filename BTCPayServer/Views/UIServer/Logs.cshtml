@@ -12,7 +12,10 @@
     @foreach (var file in Model.LogFiles)
     {
         <li>
-            <a asp-action="LogsView" asp-route-file="@file.Name">@file.Name</a>
+            <a asp-action="LogsView" asp-route-file="@file.Name" asp-route-offset="@Model.LogFileOffset">@file.Name</a>
+            <a asp-action="LogsView" asp-route-file="@file.Name" asp-route-offset="@Model.LogFileOffset" asp-route-download="true" class="mx-2">
+                <vc:icon symbol="actions-download" />
+            </a>
         </li>
     }
 </ul>
